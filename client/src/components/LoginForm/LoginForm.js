@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import TokenServive from '../../services/token-service'
 import { Button, Input } from '../Utils/Utils'
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
@@ -24,12 +23,12 @@ export default class LoginForm extends Component {
     this.props.onLoginSuccess()
   }
 
-  handelSubmitJwtAuth = ev =>{
-    ev.preventDefault();
+  handleSubmitJwtAuth = e =>{
+    e.preventDefault();
     this.setState({
       error:null
     });
-    const {user_name, password} = ev.target;
+    const {user_name, password} = e.target;
     
     AuthApiService.postLogin({
       user_name: user_name.value,
